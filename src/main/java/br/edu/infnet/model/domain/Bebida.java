@@ -2,10 +2,11 @@ package br.edu.infnet.model.domain;
 
 public class Bebida extends Produto {
 	private String tipoBebida;
+	private String sabor;
 	
 	@Override
 	public String toString() {
-		return String.format("%s - %s", super.toString(), tipoBebida);
+		return String.format("%s - %s - %s", super.toString(), tipoBebida, sabor);
 	}
 	
 	public String getTipoBebida() {
@@ -13,6 +14,12 @@ public class Bebida extends Produto {
 	}
 	public void setTipoBebida(String tipoBebida) {
 		this.tipoBebida = tipoBebida;
+	}
+	public String getSabor() {
+		return sabor;
+	}
+	public void setSabor(String sabor) {
+		this.sabor = sabor;
 	}
 
 }
