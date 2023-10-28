@@ -8,11 +8,11 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
-import br.edu.infnet.model.domain.Bebida;
-import br.edu.infnet.model.domain.Produto;
-import br.edu.infnet.model.domain.Vestimenta;
-import br.edu.infnet.model.service.LerArquivo;
-import br.edu.infnet.model.service.ProdutoService;
+import br.edu.infnet.gerenciador_vendas_app.model.domain.Bebida;
+import br.edu.infnet.gerenciador_vendas_app.model.domain.Produto;
+import br.edu.infnet.gerenciador_vendas_app.model.domain.Vestimenta;
+import br.edu.infnet.gerenciador_vendas_app.model.service.LerArquivo;
+import br.edu.infnet.gerenciador_vendas_app.model.service.ProdutoService;
 
 @Order(1)
 @Component
@@ -23,8 +23,8 @@ public class ProdutoLoader implements ApplicationRunner{
 	
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
-		
-		List<String[]> linhas = LerArquivo.run("arquivo/produtos.txt");
+		System.out.println("EXECUTOU PRODUTO LOADER JAVA");
+		List<String[]> linhas = LerArquivo.run("arquivos/produtos.txt");
 		
 		for (String[] linha : linhas) {
 			

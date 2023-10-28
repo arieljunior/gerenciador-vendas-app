@@ -1,4 +1,4 @@
-package br.edu.infnet.model.domain;
+package br.edu.infnet.gerenciador_vendas_app.model.domain;
 
 public class Vestimenta extends Produto {
 	private String tamanho;

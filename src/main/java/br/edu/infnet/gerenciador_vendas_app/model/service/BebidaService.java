@@ -1,4 +1,4 @@
-package br.edu.infnet.model.service;
+package br.edu.infnet.gerenciador_vendas_app.model.service;
 
 import java.util.Collection;
 import java.util.HashMap;
@@ -6,7 +6,7 @@ import java.util.Map;
 
 import org.springframework.stereotype.Service;
 
-import br.edu.infnet.model.domain.Bebida;
+import br.edu.infnet.gerenciador_vendas_app.model.domain.Bebida;
 
 @Service
 public class BebidaService {

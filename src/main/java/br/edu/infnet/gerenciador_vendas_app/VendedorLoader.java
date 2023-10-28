@@ -8,11 +8,11 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
-import br.edu.infnet.model.domain.Vendedor;
-import br.edu.infnet.model.service.LerArquivo;
-import br.edu.infnet.model.service.VendedorService;
+import br.edu.infnet.gerenciador_vendas_app.model.domain.Vendedor;
+import br.edu.infnet.gerenciador_vendas_app.model.service.LerArquivo;
+import br.edu.infnet.gerenciador_vendas_app.model.service.VendedorService;
 
-@Order(1)
+@Order(2)
 @Component
 public class VendedorLoader implements ApplicationRunner{
 
@@ -22,7 +22,7 @@ public class VendedorLoader implements ApplicationRunner{
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
 		
-		List<String[]> linhas = LerArquivo.run("arquivo/vendedores.txt");
+		List<String[]> linhas = LerArquivo.run("arquivos/vendedores.txt");
 		
 		for (String[] linha : linhas) {
 			Vendedor vendedor = new Vendedor();
@@ -32,6 +32,9 @@ public class VendedorLoader implements ApplicationRunner{
 			vendedor.setEmail(linha[2]);
 			
 			vendedorService.incluir(vendedor);
+		}
+		for(Vendedor vendedor: vendedorService.obterLista()) {
+			System.out.println("[Vendedor] " + vendedor);			
 		}
 		
 	}

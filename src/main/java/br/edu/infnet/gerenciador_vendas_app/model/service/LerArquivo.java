@@ -1,4 +1,4 @@
-package br.edu.infnet.model.service;
+package br.edu.infnet.gerenciador_vendas_app.model.service;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
