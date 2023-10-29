@@ -8,15 +8,14 @@ import java.util.List;
 
 public class LerArquivo{
 
-	public static List<String[]> run(String caminhoArquivo) throws IOException{
+	public static List<String[]> executar(String caminhoArquivo) throws IOException{
 		
-		FileReader file = new FileReader(caminhoArquivo);		
-		BufferedReader leitura = new BufferedReader(file);
+		FileReader arquivo = new FileReader(caminhoArquivo);		
+		BufferedReader leitura = new BufferedReader(arquivo);
 		
-		String linha = leitura.readLine();
-
 		List<String[]> linhas = new ArrayList<String[]>();
 
+		String linha = leitura.readLine();
 		while(linha != null) {
 			
 			String[] campos = linha.split(";");
@@ -25,8 +24,8 @@ public class LerArquivo{
 			linha = leitura.readLine();
 		}
 
-		
 		leitura.close();
+		
 		return linhas;
 	}
 

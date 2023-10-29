@@ -24,7 +24,7 @@ public class ProdutoLoader implements ApplicationRunner{
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
 		System.out.println("EXECUTOU PRODUTO LOADER JAVA");
-		List<String[]> linhas = LerArquivo.run("arquivos/produtos.txt");
+		List<String[]> linhas = LerArquivo.executar("arquivos/produtos.txt");
 		
 		for (String[] linha : linhas) {
 			

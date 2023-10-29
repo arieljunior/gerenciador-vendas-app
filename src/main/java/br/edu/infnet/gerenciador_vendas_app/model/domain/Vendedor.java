@@ -2,10 +2,22 @@ package br.edu.infnet.gerenciador_vendas_app.model.domain;
 
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Transient;
+
+@Entity
 public class Vendedor {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
+	
 	private String nome;
 	private String cpf;
 	private String email;
+	@Transient
 	private List<Produto> produtos;
 	
 	@Override

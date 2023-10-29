@@ -22,7 +22,7 @@ public class VendedorLoader implements ApplicationRunner{
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
 		
-		List<String[]> linhas = LerArquivo.run("arquivos/vendedores.txt");
+		List<String[]> linhas = LerArquivo.executar("arquivos/vendedores.txt");
 		
 		for (String[] linha : linhas) {
 			Vendedor vendedor = new Vendedor();
