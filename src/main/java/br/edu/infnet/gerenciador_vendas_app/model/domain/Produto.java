@@ -1,10 +1,21 @@
 package br.edu.infnet.gerenciador_vendas_app.model.domain;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.ManyToOne;
+import javax.validation.constraints.Positive;
+import javax.validation.constraints.PositiveOrZero;
+
 public class Produto {
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
 	private String descricao;
+	@PositiveOrZero
 	private int codigo;
+	@Positive
 	private float preco;
 	private boolean estoque;
+	@ManyToOne
 	
 	@Override
 	public String toString() {

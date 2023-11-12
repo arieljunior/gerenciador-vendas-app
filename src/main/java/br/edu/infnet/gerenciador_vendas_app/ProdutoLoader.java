@@ -23,40 +23,39 @@ public class ProdutoLoader implements ApplicationRunner{
 	
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
-		System.out.println("EXECUTOU PRODUTO LOADER JAVA");
 		List<String[]> linhas = LerArquivo.executar("arquivos/produtos.txt");
 		
 		for (String[] linha : linhas) {
 			
 			switch (linha[6]) {
-			case "V":
-				Vestimenta vestimenta = new Vestimenta();
-				vestimenta.setCodigo(Integer.valueOf(linha[0]));
-				vestimenta.setDescricao(linha[1]);
-				vestimenta.setEstoque(Boolean.valueOf(linha[2]));
-				vestimenta.setPreco(Float.valueOf(linha[3]));
-				vestimenta.setMarca(linha[4]);
-				vestimenta.setTamanho(linha[5]);
-				
-				produtoService.incluir(vestimenta);
-				
-				break;
-
-			case "E":
-				Bebida bebida = new Bebida();
-				bebida.setCodigo(Integer.valueOf(linha[0]));
-				bebida.setDescricao(linha[1]);
-				bebida.setEstoque(Boolean.valueOf(linha[2]));
-				bebida.setPreco(Float.valueOf(linha[3]));
-				bebida.setTipoBebida(linha[4]);
-				bebida.setSabor(linha[5]);
-				
-				produtoService.incluir(bebida);
-				
-				break;
-
-			default:
-				break;
+				case "V":
+					Vestimenta vestimenta = new Vestimenta();
+					vestimenta.setCodigo(Integer.valueOf(linha[0]));
+					vestimenta.setDescricao(linha[1]);
+					vestimenta.setEstoque(Boolean.valueOf(linha[2]));
+					vestimenta.setPreco(Float.valueOf(linha[3]));
+					vestimenta.setMarca(linha[4]);
+					vestimenta.setTamanho(linha[5]);
+					
+					produtoService.incluir(vestimenta);
+					
+					break;
+	
+				case "E":
+					Bebida bebida = new Bebida();
+					bebida.setCodigo(Integer.valueOf(linha[0]));
+					bebida.setDescricao(linha[1]);
+					bebida.setEstoque(Boolean.valueOf(linha[2]));
+					bebida.setPreco(Float.valueOf(linha[3]));
+					bebida.setTipoBebida(linha[4]);
+					bebida.setSabor(linha[5]);
+					
+					produtoService.incluir(bebida);
+					
+					break;
+	
+				default:
+					break;
 			}
 		}
 		
