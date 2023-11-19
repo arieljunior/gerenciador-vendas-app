@@ -1,0 +1,4 @@
+Ariel Junior;011.111.111-11;ariel@junior.com;20010020
+Ariel 1;111.111.111-11;ariel1@junior.com;20010020
+Ariel 2;211.111.111-11;ariel2@junior.com;20010020
+Ariel 3;311.111.111-11;ariel3@junior.com;20010020

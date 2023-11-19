@@ -1,4 +1,4 @@
-1;descricao 1;true;99;40;marca1;V;P
-2;descricao 3;true;77;30;marca2;V;M
-3;descricao 2;false;88;refrigerante;guaraná;B
-4;descricao 4;true;66;suco;uva;B
+123;descricao 1;true;99;primeira caracteristica;true;V;1
+345;descricao 3;true;77;10;primeira marca;B;1
+234;descricao 2;false;88;segunda caracteristica;false;B;2
+456;descricao 4;true;66;20;segunda marca;V;3

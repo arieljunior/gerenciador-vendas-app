@@ -1,0 +1,2 @@
+567;descricao 5;true;104;azul;G;1
+678;descricao 6;false;25;verde;M;2

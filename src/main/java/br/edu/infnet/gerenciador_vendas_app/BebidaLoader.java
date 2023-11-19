@@ -3,57 +3,58 @@ package br.edu.infnet.gerenciador_vendas_app;
 import java.io.BufferedReader;
 import java.io.FileReader;
 
-import javax.validation.ConstraintViolationException;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
-import br.edu.infnet.gerenciador_vendas_app.model.domain.Endereco;
+import br.edu.infnet.gerenciador_vendas_app.model.domain.Bebida;
 import br.edu.infnet.gerenciador_vendas_app.model.domain.Vendedor;
-import br.edu.infnet.gerenciador_vendas_app.model.service.VendedorService;
+import br.edu.infnet.gerenciador_vendas_app.model.service.BebidaService;
 
-@Order(1)
+@Order(4)
 @Component
-public class VendedorLoader implements ApplicationRunner {
+public class BebidaLoader implements ApplicationRunner {
 	
 	@Autowired
-	private VendedorService vendedorService;
+	private BebidaService bebidaService;
 
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
 		
-		FileReader file = new FileReader("arquivos/vendedor.txt");		
+		FileReader file = new FileReader("arquivos/bebida.txt");		
 		BufferedReader leitura = new BufferedReader(file);
 		
 		String linha = leitura.readLine();
 
 		String[] campos = null;
-
+				
 		while(linha != null) {
 			
 			campos = linha.split(";");
+			
+			Bebida bebida = new Bebida();
 
+			bebida.setCodigo(Integer.valueOf(campos[0]));
+			bebida.setDescricao(campos[1]);
+			bebida.setEstoque(Boolean.valueOf(campos[2]));
+			bebida.setPreco(Float.valueOf(campos[3]));
+			bebida.setTipo(campos[4]);
+			bebida.setMarca(campos[5]);
+			
 			Vendedor vendedor = new Vendedor();
+			vendedor.setId(Integer.valueOf(campos[6]));
 			
-			vendedor.setNome(campos[0]);
-			vendedor.setCpf(campos[1]);
-			vendedor.setEmail(campos[2]);
-			vendedor.setEndereco(new Endereco(campos[3]));
+			bebida.setVendedor(vendedor);
 			
-			try {
-				vendedorService.incluir(vendedor);
-			} catch (ConstraintViolationException e) {
-				FileLogger.logException("[VENDEDOR] " + vendedor + " - " + e.getMessage());
-			}
-									
+			bebidaService.incluir(bebida);
+			
 			linha = leitura.readLine();
 		}
 
-		for(Vendedor vendedor: vendedorService.obterLista()) {
-			System.out.println("[Vendedor] " + vendedor);			
+		for(Bebida bebida : bebidaService.obterLista()) {
+			System.out.println("[Bebida] " + bebida);
 		}
 		
 		leitura.close();

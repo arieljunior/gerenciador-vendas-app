@@ -1,0 +1,2 @@
+789;descricao 3;false;10;refrigerante;pepsi;3
+890;descricao 4;true;12;refrigerante;sprite;4
